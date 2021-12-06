@@ -1,10 +1,12 @@
-
 import './App.css';
-
+import LoanCalculator from './LoanCalculator';
 function App() {
   return (
     <div className="App">
-      <h1>Hello TS</h1>
+      <header className="App-header"> 
+        <LoanCalculator />
+      </header>
+      
     </div>
   );
 }
