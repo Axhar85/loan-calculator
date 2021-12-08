@@ -1,8 +1,9 @@
 import React from 'react'
+import './LoanCalculator.css';
 
 export default function LoanCalculator() {
     return (
-        <div> 
+        <form> 
             <h1>Loan Calculator</h1>
         <div className="form-item">
             <h2>Loan Amount</h2>
@@ -42,7 +43,7 @@ export default function LoanCalculator() {
                 />
             
         </div>
-        </div>
+        </form>
         
     )
 };
