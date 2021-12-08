@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function LoanCalculator() {
     return (
+        <div> 
         <div className="form-item">
             <h2>Loan Calculator</h2>
             <div className="form-input"> 
@@ -21,17 +22,18 @@ export default function LoanCalculator() {
                     placeholder="0"
                 />
             </div>
-    </div>
-    <div className="form-item">
-    <h2>Loan Terms (years)</h2>
-    <div className="form-input"> 
-        <input 
-            type="number"
-            name="loan-term-amount"
-            placeholder="0"
-        />
-    </div>
-</div>
+        </div>
+            <div className="form-item">
+            <h2>Loan Terms (years)</h2>
+             <div className="form-input"> 
+                <input 
+                type="number"
+                name="loan-term-amount"
+                placeholder="0"
+                />
+             </div>
+        </div>
+        </div>
     )
 };
 
