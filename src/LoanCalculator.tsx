@@ -1,5 +1,6 @@
 import React from 'react'
 import './LoanCalculator.css';
+import LoanJS from "loanjs";
 
 export default function LoanCalculator() {
     return (
