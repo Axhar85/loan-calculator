@@ -58,6 +58,7 @@ export default function LoanCalculator() {
             
         </div>
         </form>
+            {!!installments?.length && ( 
             <table>
                 <thead>
                     <tr>
@@ -71,15 +72,16 @@ export default function LoanCalculator() {
                 <tbody>
                     {installments.map((i:any, ind: number) => (
                         <tr key={ind}>
-                        <td>{ind}</td>
-                        <td>{i.installments}</td>
-                        <td>{i.intrest}</td>
-                        <td>{i.capital}</td>
-                        <td>{i.remain}</td>
+                          <td>{ind}</td>
+                          <td>{i.installments}</td>
+                          <td>{i.intrest}</td>
+                          <td>{i.capital}</td>
+                          <td>{i.remain}</td>
                     </tr>
                     ))}
                 </tbody>
             </table>
+            )}
         </div>
         
     )
