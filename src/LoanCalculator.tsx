@@ -16,6 +16,7 @@ export default function LoanCalculator() {
     
 
     return (
+        <div> 
         <form onSubmit={handleSubmit}> 
             <h1>Loan Calculator</h1>
         <div className="form-item">
@@ -57,6 +58,29 @@ export default function LoanCalculator() {
             
         </div>
         </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Payment Amount</th>
+                        <th>Interest Paid</th>
+                        <th>Principle paid</th>
+                        <th>Remain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {installments.map((i:any, ind: number) => (
+                        <tr key={ind}>
+                        <td>{ind}</td>
+                        <td>{i.installments}</td>
+                        <td>{i.intrest}</td>
+                        <td>{i.capital}</td>
+                        <td>{i.remain}</td>
+                    </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
         
     )
 };
