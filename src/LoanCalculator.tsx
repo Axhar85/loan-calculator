@@ -1,15 +1,19 @@
 import './LoanCalculator.css';
 import LoanJS from "loanjs";
+import { useState } from 'react';
 
 export default function LoanCalculator() {
+    const [installments, setInstallments] =  useState([]);
     const handleSubmit = (event: any) => {
         event.preventDefault();
         calculate(100000, 30, 4);
     };
     const calculate = (amount: number, years: number, rate: number) => {
         var loan = new LoanJS.Loan(amount, years * 12, rate);
-        console.log(loan)
+        setInstallments(loan.installments)
+        console.log(setInstallments)
     };
+    
 
     return (
         <form onSubmit={handleSubmit}> 
