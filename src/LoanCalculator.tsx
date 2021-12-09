@@ -7,7 +7,8 @@ export default function LoanCalculator() {
         calculate(100000, 30, 4);
     };
     const calculate = (amount: number, years: number, rate: number) => {
-
+        var loan = new LoanJS.Loan(amount, years * 12, rate);
+        console.log(loan)
     };
 
     return (
