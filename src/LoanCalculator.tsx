@@ -1,10 +1,17 @@
-import React from 'react'
 import './LoanCalculator.css';
 import LoanJS from "loanjs";
 
 export default function LoanCalculator() {
+    const handleSubmit = (event: any) => {
+        event.preventDefault();
+        calculate(100000, 30, 4);
+    };
+    const calculate = (amount: number, years: number, rate: number) => {
+
+    };
+
     return (
-        <form> 
+        <form onSubmit={handleSubmit}> 
             <h1>Loan Calculator</h1>
         <div className="form-item">
             <h2>Loan Amount</h2>
