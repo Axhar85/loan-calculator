@@ -1,92 +1,97 @@
-import './LoanCalculator.css';
+import "./LoanCalculator.css";
 import LoanJS from "loanjs";
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function LoanCalculator() {
-    const [values, setValues] = useState({
-        "loan-amount": 1,
-        "loan-term": 2,
-        "intrest-rate": 3
+  const [values, setValues] = useState({
+    "loan-amount": 0,
+    "loan-term": 0,
+    "interest-rate": 0,
+  });
+  const [installments, setInstallments] = useState([]);
+
+  const handleInputChange = (event: any) => {
+    const { name, value } = event.target;
+
+    setValues({
+      ...values,
+      [name]: value,
     });
-    const [installments, setInstallments] =  useState([]);
+  };
 
-    const handleInputChange = (event: any) => {
-        const { name, value} = event.target;
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
 
-        setValues({
-            ...values,
-            [name]: values
-        });
-    };
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        calculate(
-            values["loan-amount"],
-            values["loan-term"],
-            values["intrest-rate"]
-        );
-    };
-    const calculate = (amount: number, years: number, rate: number) => {
-        var loan = new LoanJS.Loan(amount, years * 12, rate);
-        setInstallments(loan.installments)
+    calculate(
+      values["loan-amount"],
+      values["loan-term"],
+      values["interest-rate"]
+    );
+  };
 
-    };
-    const amountFormat = (amount: number) =>
+  const calculate = (amount: number, years: number, rate: number) => {
+    const loan = new LoanJS.Loan(amount, years * 12, rate);
+
+    setInstallments(loan.installments);
+  };
+
+  const amountFormat = (amount: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
     }).format(amount);
 
-    return (
-        <div> 
-        <form onSubmit={handleSubmit}> 
-            <h1>Loan Calculator</h1>
+  return (
+    <div className="loan-calculator-container">
+      <h1>Loan Calculator</h1>
+
+      <form onSubmit={handleSubmit}>
         <div className="form-item">
-            <h2>Loan Amount</h2>
-            <div className="form-input"> 
-                <input 
-                    type="number"
-                    name="loan-amount"
-                    placeholder="0"
-                    value={values["loan-amount"]}
-                    onChange={handleInputChange}
-                />
-            </div>
-            </div>
-            <div className="form-item">
-            <h2>Intrest Amount</h2>
-            <div className="form-input"> 
-                <input 
-                    type="number"
-                    name="intrest-rate-amount"
-                    placeholder="0"
-                    value={values["intrest-rate"]}
-                    onChange={handleInputChange}
-                />
-            </div>
+          <label htmlFor="loan-amount">Loan Amount</label>
+          <div className="form-input">
+            <input
+              type="number"
+              name="loan-amount"
+              placeholder="0"
+              value={values["loan-amount"]}
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
-            <div className="form-item">
-            <h2>Loan Terms (years)</h2>
-             <div className="form-input"> 
-                <input 
-                type="number"
-                name="loan-term-amount"
-                placeholder="0"
-                value={values["loan-term"]}
-                onChange={handleInputChange}
-                />
-             </div>
+        <div className="form-item">
+          <label htmlFor="interest-rate">Interest Rate</label>
+          <div className="form-input">
+            <input
+              type="number"
+              name="interest-rate"
+              placeholder="0"
+              value={values["interest-rate"]}
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
-        < div className= "form-action">
-                <input 
-                type="submit"
-                name="Calculate"
-                className="calculate-button"
-                />
-            
+        <div className="form-item">
+          <label htmlFor="loan-term">Loan Term (Years)</label>
+          <div className="form-input">
+            <input
+              type="number"
+              name="loan-term"
+              placeholder="0"
+              value={values["loan-term"]}
+              onChange={handleInputChange}
+            />
+          </div>
         </div>
-        </form>
-        {!!installments?.length && (
+        <div className="form-action">
+          <input
+            type="submit"
+            value="Calculate"
+            className="calculate-button"
+          ></input>
+        </div>
+      </form>
+
+      {!!installments?.length && (
         <table>
           <thead>
             <tr>
@@ -110,10 +115,7 @@ export default function LoanCalculator() {
             ))}
           </tbody>
         </table>
-        )}
-        </div>
-        
-    )
-};
-
-
+      )}
+    </div>
+  );
+}
