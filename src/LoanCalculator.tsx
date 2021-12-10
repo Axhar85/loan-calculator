@@ -11,9 +11,13 @@ export default function LoanCalculator() {
     const calculate = (amount: number, years: number, rate: number) => {
         var loan = new LoanJS.Loan(amount, years * 12, rate);
         setInstallments(loan.installments)
-        console.log(setInstallments)
+
     };
-    
+    const amountFormat = (amount: number) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(amount);
 
     return (
         <div> 
@@ -58,30 +62,31 @@ export default function LoanCalculator() {
             
         </div>
         </form>
-            {!!installments?.length && ( 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Payment Amount</th>
-                        <th>Interest Paid</th>
-                        <th>Principle paid</th>
-                        <th>Remain</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {installments.map((i:any, ind: number) => (
-                        <tr key={ind}>
-                          <td>{ind}</td>
-                          <td>{i.installments}</td>
-                          <td>{i.intrest}</td>
-                          <td>{i.capital}</td>
-                          <td>{i.remain}</td>
-                    </tr>
-                    ))}
-                </tbody>
-            </table>
-            )}
+        {!!installments?.length && (
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Payment Amount</th>
+              <th>Interest Paid</th>
+              <th>Principal Paid</th>
+              <th>Remain</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {installments.map((i: any, ind: number) => (
+              <tr key={ind}>
+                <td>{ind}</td>
+                <td>{amountFormat(i.installment)}</td>
+                <td>{amountFormat(i.interest)}</td>
+                <td>{amountFormat(i.capital)}</td>
+                <td>{amountFormat(i.remain)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        )}
         </div>
         
     )
