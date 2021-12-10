@@ -35,6 +35,7 @@ export default function LoanCalculator() {
                     type="number"
                     name="loan-amount"
                     placeholder="0"
+                    value={value["loan-amount"]}
                 />
             </div>
             </div>
@@ -45,6 +46,7 @@ export default function LoanCalculator() {
                     type="number"
                     name="intrest-rate-amount"
                     placeholder="0"
+                    value={value["intrest-rate"]}
                 />
             </div>
         </div>
@@ -55,6 +57,7 @@ export default function LoanCalculator() {
                 type="number"
                 name="loan-term-amount"
                 placeholder="0"
+                value={value["loan-term"]}
                 />
              </div>
         </div>
