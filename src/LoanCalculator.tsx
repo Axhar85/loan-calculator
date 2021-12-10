@@ -3,7 +3,7 @@ import LoanJS from "loanjs";
 import { useState } from 'react';
 
 export default function LoanCalculator() {
-    const [value, setvalue] = useState({
+    const [values, setValues] = useState({
         "loan-amount": 1,
         "loan-term": 2,
         "intrest-rate": 3
@@ -13,14 +13,18 @@ export default function LoanCalculator() {
     const handleInputChange = (event: any) => {
         const { name, value} = event.target;
 
-        setvalue({
-            ...value,
-            [name]: value
+        setValues({
+            ...values,
+            [name]: values
         });
     };
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        calculate(100000, 30, 4);
+        calculate(
+            values["loan-amount"],
+            values["loan-term"],
+            values["intrest-rate"]
+        );
     };
     const calculate = (amount: number, years: number, rate: number) => {
         var loan = new LoanJS.Loan(amount, years * 12, rate);
@@ -44,7 +48,7 @@ export default function LoanCalculator() {
                     type="number"
                     name="loan-amount"
                     placeholder="0"
-                    value={value["loan-amount"]}
+                    value={values["loan-amount"]}
                     onChange={handleInputChange}
                 />
             </div>
@@ -56,7 +60,7 @@ export default function LoanCalculator() {
                     type="number"
                     name="intrest-rate-amount"
                     placeholder="0"
-                    value={value["intrest-rate"]}
+                    value={values["intrest-rate"]}
                     onChange={handleInputChange}
                 />
             </div>
@@ -68,7 +72,7 @@ export default function LoanCalculator() {
                 type="number"
                 name="loan-term-amount"
                 placeholder="0"
-                value={value["loan-term"]}
+                value={values["loan-term"]}
                 onChange={handleInputChange}
                 />
              </div>
