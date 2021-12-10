@@ -3,6 +3,11 @@ import LoanJS from "loanjs";
 import { useState } from 'react';
 
 export default function LoanCalculator() {
+    const [value, setvalue] = useState({
+        "loan-amount": 1,
+        "loan-term": 2,
+        "intrest-rate": 3
+    });
     const [installments, setInstallments] =  useState([]);
     const handleSubmit = (event: any) => {
         event.preventDefault();
