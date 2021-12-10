@@ -9,6 +9,15 @@ export default function LoanCalculator() {
         "intrest-rate": 3
     });
     const [installments, setInstallments] =  useState([]);
+
+    const handleInputChange = (event: any) => {
+        const { name, value} = event.target;
+
+        setvalue({
+            ...value,
+            [name]: value
+        });
+    };
     const handleSubmit = (event: any) => {
         event.preventDefault();
         calculate(100000, 30, 4);
