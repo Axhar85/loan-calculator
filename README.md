@@ -1,5 +1,7 @@
 # Loan Calculator
 
+An app to calculate loans, their intrest rate and remaning period available. 
+
 
 # Getting Started with Create React App
 
