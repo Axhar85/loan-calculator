@@ -5,6 +5,10 @@ An app to calculate loans, their intrest rate and remaning period available.
 This app is created using, HTML, CSS, React and Typescript. 
 
 
+<h2> Live Demo <h2>  
+  ✨[Click here] (https://brave-lamarr-14543f.netlify.app/)**.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
