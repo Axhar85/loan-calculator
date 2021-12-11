@@ -6,7 +6,7 @@ This app is created using, HTML, CSS, React and Typescript.
 
 
 <h2> Live Demo <h2>  
-  ✨[Click here] (https://brave-lamarr-14543f.netlify.app/)**.
+  ✨[Click here] (https://brave-lamarr-14543f.netlify.app)**.
 
 
 # Getting Started with Create React App
