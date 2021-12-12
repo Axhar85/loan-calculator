@@ -2,7 +2,7 @@
 
 An app to calculate loans, their intrest rate and remaning period available. 
 
-This app is created using, HTML, CSS, React and Typescript. 
+This app is created using, HTML, CSS, React and TypeScript. 
 
 
 <h2> Live Demo <h2>  
